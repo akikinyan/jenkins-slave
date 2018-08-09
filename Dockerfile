@@ -24,5 +24,8 @@ RUN apt-get install -y \
     && apt-get install -y docker-ce \
     && usermod -aG docker jenkins
 #
+RUN curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+RUN chmod +x /usr/local/bin/docker-compose
+#
 EXPOSE 22
 CMD ["/usr/sbin/sshd","-D"]
