@@ -7,7 +7,7 @@ docker jenkins slave
 
 ## run
 
-```docker run --name=jenkins-slave -t -d -p 10022:22 jenkins-slave```
+```docker run --name=jenkins-slave -t -d -p 10022:22 akikinyan/jenkins-slave```
 
 ## ノードを追加する時
 
@@ -16,4 +16,3 @@ docker jenkins slave
 ホスト (コンテナのIPアドレスを指定)  
 認証情報 (Dockerfile内で指定。jenkins/password)  
 Host Key Verification Strategy (Non Verifying Verification Strategy を指定)  
-

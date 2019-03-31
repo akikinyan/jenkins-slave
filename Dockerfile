@@ -24,8 +24,13 @@ RUN apt-get install -y \
     && apt-get install -y docker-ce \
     && usermod -aG docker jenkins
 #
-RUN curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+RUN curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
+
+# install awscli
+RUN curl -O https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py
+RUN pip install awscli --upgrade && rm get-pip.py
+
 #
 EXPOSE 22
 CMD ["/usr/sbin/sshd","-D"]
